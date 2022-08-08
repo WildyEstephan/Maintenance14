@@ -20,7 +20,7 @@ class SaleOrder(models.Model):
                                    'period_time': line.period_time,
                                    } ])
 
-                equipment_id = self.env[].create({
+                equipment_id = self.env['maintenance.equipments'].create({
                     'product_id': line.product_id.id,
                     'partner_id': line.partner_id.id,
                     'part_ids': parts
