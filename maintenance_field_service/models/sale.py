@@ -53,7 +53,7 @@ class SaleOrder(models.Model):
                 })
 
 
-    def action_view_delivery(self):
+    def action_view_installations(self):
 
         action = self.env["ir.actions.actions"]._for_xml_id("maintenance_field_service.installation_request_action")
 
