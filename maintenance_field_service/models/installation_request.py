@@ -24,6 +24,13 @@ class InstallationRequest(models.Model):
                    ],
         required=False, default='draft')
 
+    def install_this(self):
+        self.state = 'install'
+
+    def approve_this(self):
+
+        self.state = 'approve'
+
     @api.model
     def create(self, values):
         # Add code here
