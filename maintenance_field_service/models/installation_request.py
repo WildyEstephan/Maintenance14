@@ -27,7 +27,7 @@ class InstallationRequest(models.Model):
 
     request_date = fields.Date(
         string='Request Date',
-        required=False, default=datetime.now())
+        required=False, default=datetime.datetime.today())
 
 
     def install_this(self):
