@@ -54,9 +54,9 @@
             <field name="res_model">maintenance.equipments</field>
             <field name="view_mode">tree,form</field>
         </record>
-        
+
         <menuitem name="Equipments" id="equipment_maintenance_menu"
-                  parent="maintenance_installation_request_categ" action="equipment_maintenance_act_window"/>
+                  parent="maintenance_installation_request_categ" action="equipment_maintenance_action"/>
 
     </data>
 </odoo>
