@@ -1,60 +1,49 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="maintenance_field_service.list">
-      <field name="name">maintenance_field_service list</field>
-      <field name="model">maintenance_field_service.maintenance_field_service</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="maintenance_field_service.action_window">
-      <field name="name">maintenance_field_service window</field>
-      <field name="res_model">maintenance_field_service.maintenance_field_service</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
+    <record id="installation_request_view_form" model="ir.ui.view">
+        <field name="name">installation_request_view_form</field>
+        <field name="model">installation.request</field>
+        <field name="arch" type="xml">
+            <form string="Installation Request">
+                <sheet>
+                    <group>
+                        <field name="name"/>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="maintenance_field_service.action_server">
-      <field name="name">maintenance_field_service server</field>
-      <field name="model_id" ref="model_maintenance_field_service_maintenance_field_service"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
--->
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="maintenance_field_service" id="maintenance_field_service.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="maintenance_field_service.menu_1" parent="maintenance_field_service.menu_root"/>
-    <menuitem name="Menu 2" id="maintenance_field_service.menu_2" parent="maintenance_field_service.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="maintenance_field_service.menu_1_list" parent="maintenance_field_service.menu_1"
-              action="maintenance_field_service.action_window"/>
-    <menuitem name="Server to list" id="maintenance_field_service" parent="maintenance_field_service.menu_2"
-              action="maintenance_field_service.action_server"/>
--->
+    <record id="installation_request_view_tree" model="ir.ui.view">
+        <field name="name">installation_request_view_tree</field>
+        <field name="model">installation.request</field>
+        <field name="arch" type="xml">
+            <tree string="Installation Request">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="installation_request_action" model="ir.actions.act_window">
+        <field name="name">Installation Request</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">installation.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="maintenance_esd_root" name="Maintenance" sequence="25"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="maintenance_installation_request_categ"
+              name="Installation" parent="maintenance_esd_root" sequence="0"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="installation_request_categ" name="Installation Request"
+              parent="maintenance_installation_request_categ"
+              action="installation_request_action" sequence="0"/>
+
   </data>
 </odoo>
