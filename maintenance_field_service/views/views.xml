@@ -13,7 +13,13 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
+
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
                         <group>
                             <field name="partner_id"/>
                         </group>
