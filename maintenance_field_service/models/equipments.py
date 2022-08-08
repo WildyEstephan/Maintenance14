@@ -11,11 +11,11 @@ class Equipments(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.template',
         string='Product',
-        required=False)
+        required=True)
     partner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Partner',
-        required=False)
+        required=True)
     last_maintenance = fields.Date(
         string='Last maintenance',
         required=False)
@@ -35,17 +35,17 @@ class PartsEquipments(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.template',
         string='Product',
-        required=False, domain="[('is_part', '=', True)]")
+        required=True, domain="[('is_part', '=', True)]")
     qty_time = fields.Float(
         string='Qty time',
-        required=False)
+        required=True)
     period_time = fields.Selection(
         string='Period time',
         selection=[('days', 'Days'),
                    ('months', 'Months'),
                    ('years', 'Years'),
                    ],
-        required=False, )
+        required=True, )
     equipment_id = fields.Many2one(
         comodel_name='maintenance.equipments',
         string='Equipment',

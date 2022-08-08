@@ -4,5 +4,7 @@ class InstallationRequest(models.Model):
     _name = 'installation.request'
     _description = 'Installation Request'
 
-    name = fields.Char()
+    name = fields.Char(
+        string='Name', 
+        required=False)
 

@@ -24,17 +24,17 @@ class Parts(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.template',
         string='Product',
-        required=False, domain="[('is_part', '=', True)]")
+        required=True, domain="[('is_part', '=', True)]")
     qty_time = fields.Float(
         string='Qty time',
-        required=False)
+        required=True)
     period_time = fields.Selection(
         string='Period time',
         selection=[('days', 'Days'),
                    ('months', 'Months'),
                    ('years', 'Years'),
                    ],
-        required=False, )
+        required=True, )
 
 
 
