@@ -20,6 +20,7 @@
                         <group>
                             <field name="equipment_id"/>
                             <field name="request_date"/>
+                            <field name="installed_date"/>
                         </group>
 
                     </group>
