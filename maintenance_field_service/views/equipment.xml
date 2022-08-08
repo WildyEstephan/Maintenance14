@@ -25,7 +25,7 @@
                         </group>
 
                         <field name="part_ids">
-                            <tree>
+                            <tree editable="top">
                                 <field name="product_id"/>
                                 <field name="qty_time"/>
                                 <field name="period_time"/>
