@@ -20,11 +20,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale', 'sale_management'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'views/data/sequence.xml.xml',
         'views/views.xml',
         'views/product_template.xml',
         'views/equipment.xml',

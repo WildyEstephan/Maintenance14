@@ -6,9 +6,20 @@
         <field name="model">installation.request</field>
         <field name="arch" type="xml">
             <form string="Installation Request">
+                <header>
+                    <button name="install_this" string="Installed" class="oe_highlight" states="draft" type="object"/>
+                    <button name="approve_this" string="Approve" class="oe_highlight" states="install" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,install,approve"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                        <group>
+                            <field name="equipment_id"/>
+                        </group>
 
                     </group>
                 </sheet>
