@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+import datetime
 
 class InstallationRequest(models.Model):
     _name = 'installation.request'
@@ -23,6 +24,11 @@ class InstallationRequest(models.Model):
                    ('approve', 'Approved'),
                    ],
         required=False, default='draft')
+
+    request_date = fields.Date(
+        string='Request Date',
+        required=False, default=datetime.now())
+
 
     def install_this(self):
         self.state = 'install'
