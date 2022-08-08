@@ -9,20 +9,20 @@ class SaleOrder(models.Model):
         inverse_name='sale_id',
         string='Installation',
         required=False)
-    delivery_count = fields.Integer(
+    installation_count = fields.Integer(
         string='Delivery count', 
-        required=False)
+        required=False, compute='_compute_installation_count')
     
     @api.multi
     @api.depends('installation_ids')
-    def _compute_delivery_count(self):
+    def _compute_installation_count(self):
 
         for rec in self:
 
             rec.delivery_count = len(rec.installation_ids)
 
 
-        
+
 
     def action_confirm(self):
         super(SaleOrder, self).action_confirm()
