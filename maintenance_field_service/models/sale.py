@@ -49,4 +49,5 @@ class SaleOrder(models.Model):
                 self.env['installation.request'].create({
                     'equipment_id': equipment_id.id,
                     'partner_id': self.partner_id.id,
+                    'sale_id': self.id
                 })
