@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="maintenance_field_service.list">
+      <field name="name">maintenance_field_service list</field>
+      <field name="model">maintenance_field_service.maintenance_field_service</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="maintenance_field_service.action_window">
+      <field name="name">maintenance_field_service window</field>
+      <field name="res_model">maintenance_field_service.maintenance_field_service</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="maintenance_field_service.action_server">
+      <field name="name">maintenance_field_service server</field>
+      <field name="model_id" ref="model_maintenance_field_service_maintenance_field_service"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="maintenance_field_service" id="maintenance_field_service.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="maintenance_field_service.menu_1" parent="maintenance_field_service.menu_root"/>
+    <menuitem name="Menu 2" id="maintenance_field_service.menu_2" parent="maintenance_field_service.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="maintenance_field_service.menu_1_list" parent="maintenance_field_service.menu_1"
+              action="maintenance_field_service.action_window"/>
+    <menuitem name="Server to list" id="maintenance_field_service" parent="maintenance_field_service.menu_2"
+              action="maintenance_field_service.action_server"/>
+-->
+  </data>
+</odoo>
