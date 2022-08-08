@@ -29,7 +29,11 @@ class InstallationRequest(models.Model):
         string='Request Date',
         required=False, default=datetime.datetime.today())
     installed_date = fields.Date(
-        string='Installed Date', 
+        string='Installed Date',
+        required=False)
+    sale_id = fields.Many2one(
+        comodel_name='sale.order',
+        string='Sale',
         required=False)
 
 

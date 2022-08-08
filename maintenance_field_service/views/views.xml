@@ -64,5 +64,23 @@
               parent="maintenance_installation_request_categ"
               action="installation_request_action" sequence="0"/>
 
+
+      <!-- Inherit Form View to Modify it -->
+      <record id="sale_order_inherit_installation_request" model="ir.ui.view">
+          <field name="name">sale_order_inherit_installation_request</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//button[@name='action_view_invoice']" position="before">
+                    <field name="installation_ids" invisible="1"/>
+                    <button type="object" name="action_view_delivery" class="oe_stat_button"
+                            icon="fa-truck" attrs="{'invisible': [('delivery_count', '=', 0)]}" groups="base.group_user">
+                        <field name="delivery_count" widget="statinfo" string="Installation"/>
+                    </button>
+                </xpath>
+          </field>
+      </record>
+
   </data>
 </odoo>

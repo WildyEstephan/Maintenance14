@@ -4,6 +4,26 @@ from odoo import fields, models, api
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    installation_ids = fields.One2many(
+        comodel_name='installation.request',
+        inverse_name='sale_id',
+        string='Installation',
+        required=False)
+    delivery_count = fields.Integer(
+        string='Delivery count', 
+        required=False)
+    
+    @api.multi
+    @api.depends('installation_ids')
+    def _compute_delivery_count(self):
+
+        for rec in self:
+
+            rec.delivery_count = len(rec.installation_ids)
+
+
+        
+
     def action_confirm(self):
         super(SaleOrder, self).action_confirm()
 
