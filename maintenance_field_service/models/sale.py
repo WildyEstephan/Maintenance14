@@ -15,9 +15,9 @@ class SaleOrder(models.Model):
 
                 for part in line.product_id.part_ids:
                     parts.append([0,0,
-                                  {'product_id': line.product_id.id,
-                                   'qty_time': line.qty_time,
-                                   'period_time': line.period_time,
+                                  {'product_id': part.product_id.id,
+                                   'qty_time': part.qty_time,
+                                   'period_time': part.period_time,
                                    } ])
 
                 equipment_id = self.env['maintenance.equipments'].create({
@@ -30,10 +30,3 @@ class SaleOrder(models.Model):
                     'equipment_id': equipment_id.id,
                     'partner_id': self.partner_id.id,
                 })
-
-
-
-
-    
-
-
