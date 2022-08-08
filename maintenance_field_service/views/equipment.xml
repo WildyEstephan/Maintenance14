@@ -11,7 +11,7 @@
                         <div class="oe_title">
                             <label for="name"/>
                             <h1>
-                                <field name="Name"/>
+                                <field name="name"/>
                             </h1>
                         </div>
                         <group>
@@ -38,33 +38,20 @@
         </record>
 
         <record id="equipment_maintenance_tree_view" model="ir.ui.view">
-            <field name="name">ProjectName.equipment_maintenance.tree</field>
-            <field name="model">ProjectName.equipment_maintenance</field>
+            <field name="name">equipment_maintenance_tree_view</field>
+            <field name="model">maintenance.equipments</field>
             <field name="arch" type="xml">
-                <tree string="ModelTitle">
-                    <field name="create_date"/>
-                    <field name="example_field"/>
+                <tree string="Equipments">
+                    <field name="name"/>
+                    <field name="partner_id"/>
                 </tree>
             </field>
         </record>
 
-        <record id="equipment_maintenance_search_view" model="ir.ui.view">
-            <field name="name">ProjectName.equipment_maintenance.search</field>
-            <field name="model">ProjectName.equipment_maintenance</field>
-            <field name="arch" type="xml">
-                <search string="ModelTitle">
-                    <group expand="1" string="Group By">
-                        <filter string="Example Field" name="example_field" domain="[]"
-                                context="{'group_by':'example_field'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
-
         <record id="equipment_maintenance_act_window" model="ir.actions.act_window">
-            <field name="name">ModelTitle</field>
+            <field name="name">Equipment</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">ProjectName.equipment_maintenance</field>
+            <field name="res_model">maintenance.equipments</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
@@ -74,7 +61,8 @@
             </field>
         </record>
 
-        <menuitem name="ModelTitle" id="equipment_maintenance_menu" parent="your_root_menu" action="equipment_maintenance_act_window"/>
+        <menuitem name="Equipments" id="equipment_maintenance_menu"
+                  parent="maintenance_installation_request_categ" action="equipment_maintenance_act_window"/>
 
     </data>
 </odoo>
