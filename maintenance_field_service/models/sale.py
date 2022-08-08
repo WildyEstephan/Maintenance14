@@ -13,13 +13,13 @@ class SaleOrder(models.Model):
         string='Delivery count', 
         required=False, compute='_compute_installation_count')
     
-    
+
     @api.depends('installation_ids')
     def _compute_installation_count(self):
 
         for rec in self:
 
-            rec.delivery_count = len(rec.installation_ids)
+            rec.installation_count = len(rec.installation_ids)
 
 
 
