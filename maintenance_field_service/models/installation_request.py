@@ -29,7 +29,7 @@ class InstallationRequest(models.Model):
         string='Request Date',
         required=False, default=datetime.datetime.today())
     installed_date = fields.Date(
-        string='Installed_date', 
+        string='Installed Date', 
         required=False)
 
 
