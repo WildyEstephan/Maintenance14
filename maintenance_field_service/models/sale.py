@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
         string='Delivery count', 
         required=False, compute='_compute_installation_count')
     
-    @api.multi
+    
     @api.depends('installation_ids')
     def _compute_installation_count(self):
 
