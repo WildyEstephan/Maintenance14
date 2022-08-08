@@ -28,9 +28,14 @@ class InstallationRequest(models.Model):
     request_date = fields.Date(
         string='Request Date',
         required=False, default=datetime.datetime.today())
+    installed_date = fields.Date(
+        string='Installed_date', 
+        required=False)
 
 
     def install_this(self):
+        self.installed_date = datetime.datetime.today()
+
         self.state = 'install'
 
     def approve_this(self):
