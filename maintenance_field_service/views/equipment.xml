@@ -48,19 +48,13 @@
             </field>
         </record>
 
-        <record id="equipment_maintenance_act_window" model="ir.actions.act_window">
+        <record id="equipment_maintenance_action" model="ir.actions.act_window">
             <field name="name">Equipment</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">maintenance.equipments</field>
-            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new ModelTitle.
-                </p>
-            </field>
         </record>
-
+        
         <menuitem name="Equipments" id="equipment_maintenance_menu"
                   parent="maintenance_installation_request_categ" action="equipment_maintenance_act_window"/>
 
