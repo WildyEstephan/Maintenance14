@@ -22,7 +22,7 @@ class SaleOrder(models.Model):
 
                 equipment_id = self.env['maintenance.equipments'].create({
                     'product_id': line.product_id.id,
-                    'partner_id': line.partner_id.id,
+                    'partner_id': self.partner_id.id,
                     'part_ids': parts
                 })
 
