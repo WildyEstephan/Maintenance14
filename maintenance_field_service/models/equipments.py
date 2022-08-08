@@ -19,6 +19,9 @@ class Equipments(models.Model):
     last_maintenance = fields.Date(
         string='Last maintenance',
         required=False)
+    installed_date = fields.Date(
+        string='Installed Date',
+        required=False)
     part_ids = fields.One2many(
         comodel_name='product.parts.equipments',
         inverse_name='equipment_id',

@@ -76,7 +76,7 @@
               <xpath expr="//button[@name='action_view_invoice']" position="before">
                     <field name="installation_ids" invisible="1"/>
                     <button type="object" name="action_view_installations" class="oe_stat_button"
-                            icon="fa-list-check" attrs="{'invisible': [('installation_count', '=', 0)]}" groups="base.group_user">
+                            icon="fa fa-list-check" attrs="{'invisible': [('installation_count', '=', 0)]}" groups="base.group_user">
                         <field name="installation_count" widget="statinfo" string="Installation"/>
                     </button>
                 </xpath>
