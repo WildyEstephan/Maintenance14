@@ -22,10 +22,10 @@ class Equipments(models.Model):
         required=True)
     last_maintenance = fields.Date(
         string='Last maintenance',
-        required=False, compute='_compute_dates_maintenance', store=True)
+        required=False, )
     next_maintenance = fields.Date(
         string='Next maintenance',
-        required=False, compute='_compute_dates_maintenance', store=True)
+        required=False, )
     installed_date = fields.Date(
         string='Installed Date',
         required=False)
@@ -35,7 +35,10 @@ class Equipments(models.Model):
         string='Parts',
         required=False)
 
-    def prueba(self):
+
+    def _compute_dates_maintenance(self):
+
+
         last_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', self.id)],
                                                                                 order='last_maintenance desc',
                                                                                 limit=1)
@@ -43,26 +46,9 @@ class Equipments(models.Model):
                                                                                 order='next_maintenance desc',
                                                                                 limit=1)
 
-        raise exceptions.UserError(_('%s\n%s' % (last_part_for_maintenance.last_maintenance,
-                                                 next_part_for_maintenance.next_maintenance)))
 
-    @api.depends('part_ids')
-    def _compute_dates_maintenance(self):
-
-        for rec in self:
-
-            last_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', rec.id)],
-                                                                                    order='last_maintenance desc',
-                                                                                    limit=1)
-            next_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', rec.id)],
-                                                                                    order='next_maintenance desc',
-                                                                                    limit=1)
-
-            raise exceptions.UserError(_('%s\n%s' % (last_part_for_maintenance.last_maintenance,
-                                                     next_part_for_maintenance.next_maintenance)))
-
-            rec.last_maintenance = last_part_for_maintenance.last_maintenance
-            rec.next_maintenance = next_part_for_maintenance.next_maintenance
+        self.last_maintenance = last_part_for_maintenance.last_maintenance
+        self.next_maintenance = next_part_for_maintenance.next_maintenance
 
 
 class PartsEquipments(models.Model):
