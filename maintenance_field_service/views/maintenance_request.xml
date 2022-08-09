@@ -37,7 +37,8 @@
                                         <button name="check_serial"
                                                 type="object"
                                                 string="Check"
-                                                icon="fa-regular fa-check"/>
+                                                icon="fa-regular fa-check" attrs="{'invisible': [('check', '=', True)]}"/>
+                                        <field name="check" invisible="1"/>
                                     </tree>
                                 </field>
                             </page>
