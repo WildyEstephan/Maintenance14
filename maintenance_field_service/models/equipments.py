@@ -58,6 +58,9 @@ class Equipments(models.Model):
                                                                                     order='next_maintenance desc',
                                                                                     limit=1)
 
+            raise exceptions.UserError(_('%s\n%s' % (last_part_for_maintenance.last_maintenance,
+                                                     next_part_for_maintenance.next_maintenance)))
+
             rec.last_maintenance = last_part_for_maintenance.last_maintenance
             rec.next_maintenance = next_part_for_maintenance.next_maintenance
 
