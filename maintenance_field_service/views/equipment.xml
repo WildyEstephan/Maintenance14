@@ -22,6 +22,7 @@
                                 <field name="product_id"/>
                                 <field name="last_maintenance"/>
                                 <field name="next_maintenance"/>
+                                <button name="prueba" type="object" string="ObjectButton"/>
                             </group>
                         </group>
 
