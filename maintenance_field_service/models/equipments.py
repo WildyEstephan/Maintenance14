@@ -3,6 +3,8 @@ from datetime import datetime
 from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 
+from odoo import exceptions, _
+
 class Equipments(models.Model):
     _name = 'maintenance.equipments'
     _description = 'Equipments'
@@ -33,6 +35,17 @@ class Equipments(models.Model):
         string='Parts',
         required=False)
 
+    def prueba(self):
+        last_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', self.id)],
+                                                                                order='last_maintenance desc',
+                                                                                limit=1)
+        next_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', self.id)],
+                                                                                order='next_maintenance desc',
+                                                                                limit=1)
+
+        raise exceptions.UserError(_('%s\n%s' % (last_part_for_maintenance.last_maintenance,
+                                                 next_part_for_maintenance.next_maintenance)))
+
     @api.depends('part_ids')
     def _compute_dates_maintenance(self):
 
@@ -42,7 +55,7 @@ class Equipments(models.Model):
                                                                                     order='last_maintenance desc',
                                                                                     limit=1)
             next_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', rec.id)],
-                                                                                    order='last_maintenance desc',
+                                                                                    order='next_maintenance desc',
                                                                                     limit=1)
 
             rec.last_maintenance = last_part_for_maintenance.last_maintenance
