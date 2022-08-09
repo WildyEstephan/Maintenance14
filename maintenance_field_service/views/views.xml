@@ -23,6 +23,7 @@
                         <group>
                             <field name="partner_id"/>
                             <field name="sale_id"/>
+                            <field name="expected_date_installation"/>
                         </group>
                         <group>
                             <field name="equipment_id"/>

@@ -28,6 +28,9 @@ class InstallationRequest(models.Model):
     request_date = fields.Date(
         string='Request Date',
         required=False, default=datetime.datetime.today())
+    expected_date_installation = fields.Date(
+        string='Expected Date',
+        required=False)
     installed_date = fields.Date(
         string='Installed Date',
         required=False)
