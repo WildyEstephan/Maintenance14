@@ -53,6 +53,8 @@ class InstallationRequest(models.Model):
             part.last_maintenance = self.installed_date
             part.calculate_next_maintenance()
 
+        self.equipment_id.compute_dates_maintenance()
+
 
         self.state = 'approve'
 
