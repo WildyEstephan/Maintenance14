@@ -20,10 +20,10 @@ class Equipments(models.Model):
         required=True)
     last_maintenance = fields.Date(
         string='Last maintenance',
-        required=False)
+        required=False, compute='_compute_dates_maintenance', store=True)
     next_maintenance = fields.Date(
-        string='Last maintenance',
-        required=False)
+        string='Next maintenance',
+        required=False, compute='_compute_dates_maintenance', store=True)
     installed_date = fields.Date(
         string='Installed Date',
         required=False)
