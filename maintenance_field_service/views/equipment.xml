@@ -22,6 +22,9 @@
                                 <field name="product_id"/>
                                 <field name="last_maintenance"/>
                                 <field name="next_maintenance"/>
+                                <button name="create_maintenance_request"
+                                        type="object"
+                                        string="Create Request"/>
                             </group>
                         </group>
 
