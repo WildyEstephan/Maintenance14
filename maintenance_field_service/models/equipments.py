@@ -52,7 +52,7 @@ class Equipments(models.Model):
 
     def create_maintenance_request(self):
 
-        date_maintenance = self.last_maintenance + relativedelta(days=3)
+        date_maintenance = datetime.today()
 
         if date_maintenance == self.next_maintenance:
 

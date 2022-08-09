@@ -31,7 +31,7 @@
 
                         <field name="part_ids">
                             <tree editable="top">
-                                <field name="product_id"/>
+                                <field name="part_id"/>
                                 <field name="qty_time"/>
                                 <field name="period_time"/>
                                 <field name="last_maintenance"/>
