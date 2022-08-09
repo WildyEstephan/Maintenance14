@@ -55,7 +55,7 @@ class PartsEquipments(models.Model):
 
     name = fields.Char(
         string='Name',
-        required=False, related='product_id.name')
+        required=False, related='part_id.name')
     part_id = fields.Many2one(
         comodel_name='product.template',
         string='Product',
