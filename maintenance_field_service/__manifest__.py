@@ -28,6 +28,7 @@
         'data/sequence.xml',
         'views/views.xml',
         'views/product_template.xml',
+        'views/maintenance_request.xml',
         'views/equipment.xml',
         'views/templates.xml',
     ],

@@ -28,9 +28,14 @@ class MaintenanceRequest(models.Model):
     type_maintenance = fields.Selection(string="Type of Maintenance",
                                         selection=[('corrective', 'Corrective'),
                                                    ('preventive', 'Preventive'), ],)
+
+    specialist_id = fields.Many2one(comodel_name="hr.employee", string="Specialist",
+                                    required=False,
+                                    # domain="[('type_workforce_id', '=', type_workforce_id)]",
+                                    store=True)
+    # user_id = fields.Many2one(comodel_name="res.users", string="User", required=False, )
     
-    
-    maintenance_parts_id = fields.One2many(
+    maintenance_part_ids = fields.One2many(
         comodel_name='maintenance.parts',
         inverse_name='maintenance_request_id',
         string='Parts Maintenance',
@@ -70,3 +75,12 @@ class PartsEquipments(models.Model):
         comodel_name='maintenance.request',
         string='Maintenance Request',
         required=False)
+
+    check = fields.Boolean(
+        string='Check',
+        required=False)
+
+
+    def check_serial(self):
+
+        self.check = True

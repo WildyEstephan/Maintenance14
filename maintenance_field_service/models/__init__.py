@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models, product_template, equipments, installation_request, sale
+from . import models, product_template, equipments, installation_request, sale, maintenance_request

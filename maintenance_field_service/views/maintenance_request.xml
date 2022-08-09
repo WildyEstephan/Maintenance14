@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="maintenance_request_form_view" model="ir.ui.view">
+            <field name="name">maintenance_request_form_view</field>
+            <field name="model">maintenance.request</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance Request">
+                    <sheet>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="equipment_id"/>
+                                <field name="request_date"/>
+                                <field name="planned_end_date"/>
+                                <field name="planned_end_hours"/>
+                                <field name="type_maintenance"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="end_hours"/>
+                                <field name="specialist_id"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="parts" string="Parts">
+                                <field name="maintenance_part_ids">
+                                    <tree editable="bottom">
+                                        <field name="part_id"/>
+                                        <field name="serial_part"/>
+                                        <button name="check_serial"
+                                                type="object"
+                                                string="Check"
+                                                icon="fa-regular fa-check"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="tasks" string="Tasks">
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="maintenance_request_tree_view" model="ir.ui.view">
+            <field name="name">ProjectName.maintenance_request.tree</field>
+            <field name="model">ProjectName.maintenance_request</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="create_date"/>
+                    <field name="example_field"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="maintenance_request_search_view" model="ir.ui.view">
+            <field name="name">ProjectName.maintenance_request.search</field>
+            <field name="model">ProjectName.maintenance_request</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="maintenance_request_act_window" model="ir.actions.act_window">
+            <field name="name">ModelTitle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ProjectName.maintenance_request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="ModelTitle" id="maintenance_request_menu" parent="your_root_menu" action="maintenance_request_act_window"/>
+
+    </data>
+</odoo>
