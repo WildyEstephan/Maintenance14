@@ -41,11 +41,18 @@ class InstallationRequest(models.Model):
 
 
     def install_this(self):
-        self.installed_date = datetime.datetime.today()
 
         self.state = 'install'
 
+
     def approve_this(self):
+        self.installed_date = datetime.datetime.today()
+
+
+        for part in self.equipment_id.part_ids:
+            part.last_maintenance = self.installed_date
+            part.calculate_next_maintenance()
+
 
         self.state = 'approve'
 

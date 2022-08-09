@@ -36,6 +36,7 @@ class SaleOrder(models.Model):
                 for part in line.product_id.part_ids:
                     parts.append([0,0,
                                   {'product_id': part.product_id.id,
+                                   'part_id': part.part_id.id,
                                    'qty_time': part.qty_time,
                                    'period_time': part.period_time,
                                    } ])
