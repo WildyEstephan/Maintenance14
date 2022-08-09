@@ -27,6 +27,7 @@
                                         string="Create Request"/>
                             </group>
                         </group>
+                        <button name="compute_dates_maintenance" type="object" string="Calcular Fechas"/>
 
                         <field name="part_ids">
                             <tree editable="top">
