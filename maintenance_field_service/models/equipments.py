@@ -50,6 +50,33 @@ class Equipments(models.Model):
         self.last_maintenance = last_part_for_maintenance.last_maintenance
         self.next_maintenance = next_part_for_maintenance.next_maintenance
 
+    def create_maintenance_request(self):
+
+        date_maintenance = self.last_maintenance + relativedelta(days=3)
+
+        if date_maintenance == self.next_maintenance:
+
+            parts_to_maintenance = []
+
+            for part in self.part_ids.filtered(lambda r: r.next_maintenance == date_maintenance):
+
+                parts_to_maintenance.append((0, 0, {
+                    'part_id': part.part_id.id,
+                    'equipment_part': part.id
+                }))
+
+            request = self.env['maintenance.request'].create(
+                {'equipment_id': self.id,
+                 'start_date': date_maintenance,
+                 'planned_end_date': date_maintenance,
+                 'type_maintenance': 'preventive',
+                 'maintenance_part_ids': parts_to_maintenance
+                 })
+
+
+
+
+
 
 class PartsEquipments(models.Model):
     _name = 'product.parts.equipments'

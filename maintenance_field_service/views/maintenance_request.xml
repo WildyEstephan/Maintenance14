@@ -51,43 +51,32 @@
         </record>
 
         <record id="maintenance_request_tree_view" model="ir.ui.view">
-            <field name="name">ProjectName.maintenance_request.tree</field>
-            <field name="model">ProjectName.maintenance_request</field>
+            <field name="name">maintenance_request_tree_view</field>
+            <field name="model">maintenance.request</field>
             <field name="arch" type="xml">
                 <tree string="ModelTitle">
-                    <field name="create_date"/>
-                    <field name="example_field"/>
+                    <field name="name"/>
+                    <field name="star_date"/>
                 </tree>
             </field>
         </record>
 
-        <record id="maintenance_request_search_view" model="ir.ui.view">
-            <field name="name">ProjectName.maintenance_request.search</field>
-            <field name="model">ProjectName.maintenance_request</field>
-            <field name="arch" type="xml">
-                <search string="ModelTitle">
-                    <group expand="1" string="Group By">
-                        <filter string="Example Field" name="example_field" domain="[]"
-                                context="{'group_by':'example_field'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
-
-        <record id="maintenance_request_act_window" model="ir.actions.act_window">
-            <field name="name">ModelTitle</field>
+        <record id="maintenance_request_action" model="ir.actions.act_window">
+            <field name="name">Maintenance Request</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">ProjectName.maintenance_request</field>
-            <field name="view_type">form</field>
+            <field name="res_model">maintenance.request</field>
             <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new ModelTitle.
-                </p>
-            </field>
         </record>
 
-        <menuitem name="ModelTitle" id="maintenance_request_menu" parent="your_root_menu" action="maintenance_request_act_window"/>
+
+        <!-- This Menu Item Must have a parent -->
+    <menuitem id="maintenance_request_categ"
+              name="Maintenance" parent="maintenance_esd_root" sequence="5"/>
+
+        <menuitem name="Maintenance"
+                  id="maintenance_request_menu"
+                  parent="maintenance_request_categ"
+                  action="maintenance_request_act_window"/>
 
     </data>
 </odoo>
