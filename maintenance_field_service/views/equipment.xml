@@ -21,6 +21,7 @@
                             <group>
                                 <field name="product_id"/>
                                 <field name="last_maintenance"/>
+                                <field name="next_maintenance"/>
                             </group>
                         </group>
 
@@ -29,6 +30,8 @@
                                 <field name="product_id"/>
                                 <field name="qty_time"/>
                                 <field name="period_time"/>
+                                <field name="last_maintenance"/>
+                                <field name="next_maintenance"/>
                             </tree>
                         </field>
 
