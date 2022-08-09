@@ -36,7 +36,7 @@ class Equipments(models.Model):
         required=False)
 
 
-    def _compute_dates_maintenance(self):
+    def compute_dates_maintenance(self):
 
 
         last_part_for_maintenance = self.env['product.parts.equipments'].search([('equipment_id', '=', self.id)],
