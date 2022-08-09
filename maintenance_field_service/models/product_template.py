@@ -24,6 +24,10 @@ class Parts(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.template',
         string='Product',
+        required=True,)
+    part_id = fields.Many2one(
+        comodel_name='product.template',
+        string='Product',
         required=True, domain="[('is_part', '=', True)]")
     qty_time = fields.Float(
         string='Qty time',
