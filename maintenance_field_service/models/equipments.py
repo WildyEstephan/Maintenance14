@@ -89,16 +89,14 @@ class PartsEquipments(models.Model):
 
     def calculate_next_maintenance(self):
 
-        last_maintenance = datetime.strptime(self.last_maintenance, '%Y-%m-%d')
-
         next_maintenance = ''
 
         if self.period_time == 'days':
-            next_maintenance = last_maintenance + relativedelta(days=self.qty_time)
+            next_maintenance = self.last_maintenance + relativedelta(days=self.qty_time)
         elif self.period_time == 'months':
-            next_maintenance = last_maintenance + relativedelta(months=self.qty_time)
+            next_maintenance = self.last_maintenance + relativedelta(months=self.qty_time)
         elif self.period_time == 'years':
-            next_maintenance = last_maintenance + relativedelta(years=self.qty_time)
+            next_maintenance = self.last_maintenance + relativedelta(years=self.qty_time)
 
         self.next_maintenance = next_maintenance
 
