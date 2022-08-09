@@ -57,7 +57,7 @@
             <field name="arch" type="xml">
                 <tree string="ModelTitle">
                     <field name="name"/>
-                    <field name="star_date"/>
+                    <field name="start_date"/>
                 </tree>
             </field>
         </record>
