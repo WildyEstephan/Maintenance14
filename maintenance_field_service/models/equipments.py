@@ -79,7 +79,7 @@ class PartsEquipments(models.Model):
         string='Last maintenance',
         required=False)
     next_maintenance = fields.Date(
-        string='Last maintenance',
+        string='Next maintenance',
         required=False)
 
     equipment_id = fields.Many2one(
