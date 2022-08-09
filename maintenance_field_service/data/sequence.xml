@@ -11,4 +11,12 @@
         <field name="prefix">INS/%(year)s/%(month)s</field>
         <field name="padding">5</field>
     </record>
+
+    <record id="sequence_maintenance_request" model="ir.sequence">
+        <field name="name">Maintenance Request Sequence</field>
+        <field name="code">maintenance.request</field>
+        <field name="number_next_actual">1</field>
+        <field name="prefix">MR/%(year)s/%(month)s</field>
+        <field name="padding">5</field>
+    </record>
 </odoo>
