@@ -58,7 +58,7 @@ class Equipments(models.Model):
 
         parts_to_maintenance = []
 
-        for part in self.part_ids.filtered(lambda r: r.next_maintenance == date_maintenance):
+        for part in self.part_ids:
 
             parts_to_maintenance.append((0, 0, {
                 'part_id': part.part_id.id,
